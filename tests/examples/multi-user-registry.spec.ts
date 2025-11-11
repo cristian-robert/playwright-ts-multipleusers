@@ -1,4 +1,4 @@
-import { multiUserTest as test, expect } from '@fixtures/multi-user.fixture';
+import { authenticatedMultiUserTest as test, expect } from '@fixtures/authenticated-multi-user.fixture';
 
 /**
  * Registry Usage Examples - Multi User
