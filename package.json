@@ -1,0 +1,36 @@
+{
+  "name": "playwright-ts-professional-framework",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Playwright TypeScript framework with multi-user support, Shadow DOM handling, and backend integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:multi-user": "playwright test tests/multi-user",
+    "test:api": "playwright test tests/api",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen",
+    "trace": "playwright show-trace"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "testing",
+    "e2e",
+    "page-object",
+    "multi-user"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0"
+  }
+}
