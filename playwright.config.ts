@@ -1,5 +1,5 @@
-import { defineConfig, devices } from '@playwright/test';
-import { config } from './src/config/env.config';
+import { defineConfig, devices } from "@playwright/test";
+import { config } from "./src/config/env.config";
 
 /**
  * Playwright Test Configuration
@@ -7,10 +7,11 @@ import { config } from './src/config/env.config';
  */
 export default defineConfig({
   // Test directory
-  testDir: './tests',
+  testDir: "./tests",
+  globalSetup: require.resolve("./tests/global-setup.ts"),
 
   // Test file patterns
-  testMatch: '**/*.spec.ts',
+  testMatch: "**/*.spec.ts",
 
   // Maximum time one test can run
   timeout: 60 * 1000,
@@ -29,10 +30,10 @@ export default defineConfig({
 
   // Reporter configuration
   reporter: [
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['json', { outputFile: 'test-results/results.json' }],
-    ['junit', { outputFile: 'test-results/junit.xml' }],
-    ['list'],
+    ["html", { outputFolder: "playwright-report", open: "never" }],
+    ["json", { outputFile: "test-results/results.json" }],
+    ["junit", { outputFile: "test-results/junit.xml" }],
+    ["list"],
   ],
 
   // Shared settings for all projects
@@ -45,13 +46,13 @@ export default defineConfig({
     slowMo: config.slowMo,
 
     // Collect trace on failure
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
 
     // Screenshot on failure
-    screenshot: 'only-on-failure',
+    screenshot: "only-on-failure",
 
     // Video on failure
-    video: 'retain-on-failure',
+    video: "retain-on-failure",
 
     // Timeout for actions
     actionTimeout: 15 * 1000,
@@ -69,67 +70,67 @@ export default defineConfig({
     acceptDownloads: true,
 
     // Locale
-    locale: 'en-US',
+    locale: "en-US",
 
     // Timezone
-    timezoneId: 'America/New_York',
+    timezoneId: "America/New_York",
 
     // Permissions
-    permissions: ['clipboard-read', 'clipboard-write'],
+    permissions: ["clipboard-read", "clipboard-write"],
 
     // Extra HTTP headers
     extraHTTPHeaders: {
-      'Accept-Language': 'en-US,en;q=0.9',
+      "Accept-Language": "en-US,en;q=0.9",
     },
   },
 
   // Test output directory
-  outputDir: 'test-results/',
+  outputDir: "test-results/",
 
   // Configure projects for different browsers
   projects: [
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
-        channel: 'chrome',
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
       },
     },
 
     {
-      name: 'firefox',
+      name: "firefox",
       use: {
-        ...devices['Desktop Firefox'],
+        ...devices["Desktop Firefox"],
       },
     },
 
     {
-      name: 'webkit',
+      name: "webkit",
       use: {
-        ...devices['Desktop Safari'],
+        ...devices["Desktop Safari"],
       },
     },
 
     // Mobile viewports
     {
-      name: 'mobile-chrome',
+      name: "mobile-chrome",
       use: {
-        ...devices['Pixel 5'],
+        ...devices["Pixel 5"],
       },
     },
 
     {
-      name: 'mobile-safari',
+      name: "mobile-safari",
       use: {
-        ...devices['iPhone 12'],
+        ...devices["iPhone 12"],
       },
     },
 
     // Tablet viewports
     {
-      name: 'tablet',
+      name: "tablet",
       use: {
-        ...devices['iPad Pro'],
+        ...devices["iPad Pro"],
       },
     },
   ],
